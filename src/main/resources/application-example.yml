@@ -1,0 +1,58 @@
+spring:
+  profiles:
+    active: qa
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    username:
+    url: jdbc:mysql://localhost:3306/testdb
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Hello world! Welcome!
+
+---
+
+spring:
+  profiles: qa
+  datasource:
+    username:
+    url: jdbc:mysql://localhost:3306/testdbqa
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Hello world! Welcome!
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        exclude: "env,beans"
+
+---
+
+spring:
+  profiles: prod
+  datasource:
+    username:
+    url: jdbc:mysql://localhost:3306/testdbprod
+    driverClassName: com.mysql.cj.jdbc.Driver
+    password:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+welcome:
+  message: Hello world! Welcome!
