@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.transaction.Transactional;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Positive;
@@ -26,6 +27,12 @@ public class Department {
 
     public Department(Long departmentId, String departmentName, String departmentAddress, String departmentCode) {
         this.departmentId = departmentId;
+        this.departmentName = departmentName;
+        this.departmentAddress = departmentAddress;
+        this.departmentCode = departmentCode;
+    }
+
+    public Department(String departmentName, String departmentAddress, String departmentCode) {
         this.departmentName = departmentName;
         this.departmentAddress = departmentAddress;
         this.departmentCode = departmentCode;
